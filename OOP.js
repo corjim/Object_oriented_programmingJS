@@ -15,14 +15,17 @@ class Vehicle {
         this.year = year;
     };
 
+    // Method to return a news flash about the vehicle
     newsFlash() {
         return `The production of ${this.make} has recall all the ${this.year} ${this.model} in stock`
     }
 
+    // Method to simulate honking the vehicle's horn
     honk() {
         return `beep`
     }
 
+    // Method to return a string representation of the vehicle
     toString() {
         return `This vehicle is a ${this.make} ${this.model} from ${this.year}`
     }
@@ -40,6 +43,7 @@ class Car extends Vehicle {
         super(make, model, year);
     };
 
+    // Method to return the number of wheels of the car
     numWheel() {
         return 4;
     };
@@ -54,11 +58,14 @@ class Motorcycle extends Vehicle {
     constructor(make, model, year) {
 
         super(make, model, year);
-
     }
+
+    // Method to return the number of wheels of the car
     numWheel() {
         return 2;
     };
+
+    // Method to return the sound of the motorcycle.
     revEngine() {
         return 'VROOM!!!'
     }
@@ -75,17 +82,20 @@ class Garage {
         this.vehicles = [];
         this.capacity = capacity;
     }
+
     add(newVehicle) {
-        newVehicle instanceof Vehicle;
-
-        if (!newVehicle instanceof Vehicle) {
-            return 'Only vehicles are allowed in here'
+        // Check if newVehicle is an instance of Vehicle
+        if (!(newVehicle instanceof Vehicle)) {
+            return 'Only vehicles are allowed in here';
         }
+
+        // Check if the garage is full
         if (this.vehicles.length >= this.capacity) {
-            return 'Sorry, we are full.'
+            return 'Sorry, we are full.';
         }
 
+        // Add the new vehicle to the garage
         this.vehicles.push(newVehicle);
-        return `Vehicle added`
+        return 'Vehicle added';
     }
 }
